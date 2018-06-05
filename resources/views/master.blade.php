@@ -42,13 +42,13 @@
                 <li><a href="{{\Illuminate\Support\Facades\URL::to('/portfolio')}}">Portfolio</a></li>
                 <li><a href="{{\Illuminate\Support\Facades\URL::to('/services')}}">Services</a></li>
                 <li><a href="{{\Illuminate\Support\Facades\URL::to('/contact')}}">Contact Us</a></li>
+                <li><a href="{{\Illuminate\Support\Facades\URL::to('/admin-login')}}">Admin Login</a></li>
             </ul>
 
         </div> <!-- end of templatemo_menu -->
 
         <div id="twitter">
-            <a href="#">follow us <br />
-                on twitter</a>
+            <a href="{{\Illuminate\Support\Facades\URL::to('/admin-login')}}">Admin Login</a>
         </div>
 
     </div>

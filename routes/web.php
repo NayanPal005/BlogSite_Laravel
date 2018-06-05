@@ -20,3 +20,5 @@ Route::get('/','WelcomeController@index'); //home page of this project
 Route::get('/portfolio','WelcomeController@portfolio'); //portfolio page of this project
 Route::get('/services','WelcomeController@services'); //Service page of this project
 Route::get('/contact','WelcomeController@contact'); //Contact page of this project
+Route::get('/admin-login','AdminController@admin_login');
+Route::get('/admin-dashboard','AdminController@index');
