@@ -22,3 +22,6 @@ Route::get('/services','WelcomeController@services'); //Service page of this pro
 Route::get('/contact','WelcomeController@contact'); //Contact page of this project
 Route::get('/admin-login','AdminController@admin_login');
 Route::get('/admin-dashboard','AdminController@index');
+/*  admin panel routes start  */
+Route::get('/add-blog','AdminController@add_blog');
+Route::get('/manage-blog','AdminController@manage_blog');

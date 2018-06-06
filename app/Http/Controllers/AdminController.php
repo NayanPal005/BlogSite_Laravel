@@ -20,6 +20,16 @@ class AdminController extends Controller
         return view('admin.login');
 
     }
+    public function add_blog(){
+
+       $add_blog=view('pages.add_blog');
+
+       return view('admin.admin_dashboard')->with('main_content',$add_blog);
+    }
+    public function manage_blog(){
+
+        echo "Hello admin !Manage You Blog";
+    }
 
     /**
      * Show the form for creating a new resource.

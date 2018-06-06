@@ -5,7 +5,7 @@
 <head>
     <!-- start: Meta -->
     <meta charset="utf-8">
-    <title>Ecommerce Site by Nayan</title>
+    <title>BlogSite by Nayan</title>
     <meta name="description" content="Bootstrap Metro Dashboard">
     <meta name="author" content="Dennis Ji">
     <meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -43,7 +43,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="index.html"><span>E-Commerce</span></a>
+            <a class="brand" href="index.html"><span>Nayan's BLOG</span></a>
 
 
             <div class="nav-no-collapse header-nav">
@@ -85,17 +85,16 @@
                     <!--<li><a href="admin-form"><i class="icon-envelope"></i><span class="hidden-tablet"> Register Admin</span></a></li>-->
                     <li><a href=""><i class="icon-envelope"></i><span class="hidden-tablet">Admin Registration</span></a></li>
 
-                    <li><a href="product-add"><i class="icon-tasks"></i><span class="hidden-tablet">Add  Category</span></a></li>
+                    <li><a href="{{\Illuminate\Support\Facades\URL::to('/add-blog')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Add  Blog</span></a></li>
 
-                    <li><a href="manage-category"><i class="icon-eye-open"></i><span class="hidden-tablet">Manage Category</span></a></li>
+                    <li><a href="{{\Illuminate\Support\Facades\URL::to('/manage-blog')}}"><i class="icon-eye-open"></i><span class="hidden-tablet">Manage Blog</span></a></li>
 
-                    <li><a href="add-product"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add Product</span></a></li>
+                    <li><a href="add-product"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add Post</span></a></li>
 
-                    <li><a href="manage-product"><i class="icon-dashboard"></i><span class="hidden-tablet"> Manage Product</span></a></li>
+                    <li><a href="manage-product"><i class="icon-dashboard"></i><span class="hidden-tablet"> Manage Post</span></a></li>
 
 
-                    <li><a href="add-manufacturer"><i class="icon-edit"></i><span class="hidden-tablet"> Add Manufacturer</span></a></li>
-                    <li><a href="manage-manufacturer"><i class="icon-list-alt"></i><span class="hidden-tablet">Manage Manufacturer</span></a></li>
+
                     <li><a href="?>"><i class="icon-font"></i><span class="hidden-tablet">Manage Invoice</span></a></li>
 
 
@@ -132,7 +131,7 @@
 
             </div>
 
-
+@yield('main_content')
            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             <footer>
