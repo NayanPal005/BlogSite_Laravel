@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+
+\Illuminate\Support\Facades\Schema::defaultStringLength(191);
 Route::get('/','WelcomeController@index'); //home page of this project
 
 Route::get('/portfolio','WelcomeController@portfolio'); //portfolio page of this project
@@ -25,3 +27,5 @@ Route::get('/admin-dashboard','AdminController@index');
 /*  admin panel routes start  */
 Route::get('/add-blog','AdminController@add_blog');
 Route::get('/manage-blog','AdminController@manage_blog');
+Route::get('/add-category','AdminController@add_category');
+Route::post('/save-category','AdminController@save_category');

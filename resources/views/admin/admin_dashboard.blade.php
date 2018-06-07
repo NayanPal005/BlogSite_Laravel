@@ -89,7 +89,7 @@
 
                     <li><a href="{{\Illuminate\Support\Facades\URL::to('/manage-blog')}}"><i class="icon-eye-open"></i><span class="hidden-tablet">Manage Blog</span></a></li>
 
-                    <li><a href="add-product"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add Post</span></a></li>
+                    <li><a href="{{url('add-category')}}"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add Category</span></a></li>
 
                     <li><a href="manage-product"><i class="icon-dashboard"></i><span class="hidden-tablet"> Manage Post</span></a></li>
 
@@ -132,7 +132,8 @@
             </div>
 
 @yield('main_content')
-           //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        <!--   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
             <footer>
 

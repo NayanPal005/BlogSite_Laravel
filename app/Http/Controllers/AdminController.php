@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -29,6 +32,40 @@ class AdminController extends Controller
     public function manage_blog(){
 
         echo "Hello admin !Manage You Blog";
+    }
+    public function add_category(){
+
+        $add_category=view('pages.add_category');
+
+        return view('admin.admin_dashboard')->with('main_content',$add_category);
+
+
+    }
+    public function save_category(Request $request){
+
+
+
+         $data=array();
+         $data['category_name']=$request->category_name;
+         $data['category_slug']=str_slug($request->category_name);
+         $data['category_description']=$request->category_description;
+         $data['category_status']=$request->category_status;
+         $data['category_status']=$request->category_status;
+         $data['created_at']=Carbon::now();
+         //$data['created_at']=Carbon::now();
+ /*
+         echo '<pre>';
+         print_r($data);
+         exit();
+ */
+        DB::table('tbl_category')->insert($data);
+        return redirect('add-category')->with('status', 'Category Inserted!');
+
+
+     //  dd($request->all())
+
+
+
     }
 
     /**
