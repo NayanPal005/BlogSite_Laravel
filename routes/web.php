@@ -22,8 +22,11 @@ Route::get('/','WelcomeController@index'); //home page of this project
 Route::get('/portfolio','WelcomeController@portfolio'); //portfolio page of this project
 Route::get('/services','WelcomeController@services'); //Service page of this project
 Route::get('/contact','WelcomeController@contact'); //Contact page of this project
+/*================Admin Routes==============================*/
 Route::get('/admin-login','AdminController@admin_login');
-Route::get('/admin-dashboard','AdminController@index');
+Route::get('/admin-dashboard','SuperAdminController@index');
+Route::post('/admin-login-check','AdminController@admin_login_check');
+
 /*  admin panel routes start  */
 Route::get('/add-blog','AdminController@add_blog');
 Route::get('/manage-blog','AdminController@manage_blog');

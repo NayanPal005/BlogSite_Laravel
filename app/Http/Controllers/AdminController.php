@@ -16,18 +16,29 @@ class AdminController extends Controller
      */
     public function index()
     {
-       return view('admin.admin_dashboard');
+       return view('admin_dashboard');
     }
     public function admin_login(){
 
         return view('admin.login');
 
     }
+    public  function admin_login_check(Request $request){
+
+        echo $request->email;
+        echo '<pre>';
+        echo $request->password;
+      return  dd($request->all());
+
+        return "HI,THis is checking login";
+
+
+    }
     public function add_blog(){
 
-       $add_blog=view('pages.add_blog');
+       $add_blog=view('admin.add_blog');
 
-       return view('admin.admin_dashboard')->with('main_content',$add_blog);
+       return view('admin_dashboard')->with('main_content',$add_blog);
     }
     public function manage_blog(){
 
@@ -35,9 +46,9 @@ class AdminController extends Controller
     }
     public function add_category(){
 
-        $add_category=view('pages.add_category');
+        $add_category=view('admin.add_category');
 
-        return view('admin.admin_dashboard')->with('main_content',$add_category);
+        return view('admin_dashboard')->with('main_content',$add_category);
 
 
     }

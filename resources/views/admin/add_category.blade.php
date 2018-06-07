@@ -1,5 +1,5 @@
 
-@extends('admin.admin_dashboard')
+@extends('admin_dashboard')
 @section('main_content')
 
 
