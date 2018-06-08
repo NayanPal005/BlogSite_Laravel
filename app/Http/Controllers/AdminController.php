@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+
 use Carbon\Carbon;
+
 
 class AdminController extends Controller
 {
@@ -25,12 +27,44 @@ class AdminController extends Controller
     }
     public  function admin_login_check(Request $request){
 
-        echo $request->email;
-        echo '<pre>';
-        echo $request->password;
-      return  dd($request->all());
+       $admin_email=$request->admin_email;
 
-        return "HI,THis is checking login";
+       $admin_password=md5($request->admin_password);
+
+     //  echo $admin_email.$admin_password;
+
+        $result= DB::table('admin_login')
+
+            ->select('*')
+
+            ->where('admin_email',$admin_email)
+
+            ->where('admin_password',$admin_password)
+
+            ->first();//CodeIgniter er row() ta eklane first()
+
+    //  echo '<pre>';
+    //  print_r($result);
+      //exit();
+
+         // Session::put('admin_id',$result->admin_id);
+         // Session::put('admin_name',$result->admin_name);
+
+        if ($result){
+
+            return redirect('admin-dashboard');
+        }
+        else{
+
+            return redirect('admin-login')
+                
+               ->with('status','Your Email or Password is not correct!Please try again');
+
+        }
+
+
+
+
 
 
     }

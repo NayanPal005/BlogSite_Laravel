@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SuperAdminController extends Controller
 {
@@ -15,7 +16,18 @@ class SuperAdminController extends Controller
     {
         return view('admin_dashboard');
     }
+  public function admin_logout(){
 
+      //  echo "Hi,This is logout";
+
+      Session::put('admin_id','');
+      Session::put('admin_name','');
+
+     return redirect('admin-login')->with('session_destroy','you LogOut Successfully');
+
+
+
+  }
     /**
      * Show the form for creating a new resource.
      *

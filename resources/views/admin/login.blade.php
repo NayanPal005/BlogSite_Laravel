@@ -47,6 +47,18 @@
 </head>
 
 <body>
+@if (session('status'))
+    <div class="alert alert-danger">
+        {{ session('status') }}
+    </div>
+@endif
+
+@if (session('session_destroy'))
+    <div class="alert alert-danger">
+        {{ session('session_destroy') }}
+    </div>
+@endif
+
 <div class="container-fluid-full">
     <div class="row-fluid">
 
