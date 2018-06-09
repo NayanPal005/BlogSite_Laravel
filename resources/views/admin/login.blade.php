@@ -59,6 +59,15 @@
     </div>
 @endif
 
+
+<?php
+//        $exeption=\Illuminate\Support\Facades\Session::get('exeption');
+//   if ($exeption){
+//       \Illuminate\Support\Facades\Session::put('exeption','');
+//   }
+//
+//        ?>
+
 <div class="container-fluid-full">
     <div class="row-fluid">
 

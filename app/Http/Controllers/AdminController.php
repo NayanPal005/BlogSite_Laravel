@@ -16,22 +16,33 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __construct()
     {
-       return view('admin_dashboard');
+
     }
+
+    public function index()
+
+    {
+
+      // return view('admin_dashboard');
+    }
+
+
+
     public function admin_login(){
 
         return view('admin.login');
 
     }
+
     public  function admin_login_check(Request $request){
 
        $admin_email=$request->admin_email;
 
        $admin_password=md5($request->admin_password);
 
-     //  echo $admin_email.$admin_password;
+
 
         $result= DB::table('admin_login')
 
@@ -43,27 +54,26 @@ class AdminController extends Controller
 
             ->first();//CodeIgniter er row() ta eklane first()
 
-    //  echo '<pre>';
-    //  print_r($result);
-      //exit();
-
-         // Session::put('admin_id',$result->admin_id);
-         // Session::put('admin_name',$result->admin_name);
 
         if ($result){
 
-            return redirect('admin-dashboard');
+            Session::put('admin_id',$result->admin_id);
+            Session::put('admin_name','$result->admin_name');
+
+           // echo $admin_id;
+
+           return redirect('admin-dashboard');
+
+
         }
         else{
+         // Session::put('exeption','Your User ID or password Invalid');
 
             return redirect('admin-login')
-                
-               ->with('status','Your Email or Password is not correct!Please try again');
+
+              ->with('status','Your Email or Password is not correct!Please try again');
 
         }
-
-
-
 
 
 

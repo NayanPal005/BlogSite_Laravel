@@ -12,9 +12,33 @@ class SuperAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+
+
+    }
+
     public function index()
     {
-        return view('admin_dashboard');
+      return  $this->authChecking();
+       // return view('admin_dashboard');
+    }
+    public function authChecking(){
+
+        $admin_id=Session::get('admin_id');
+
+        if ($admin_id==NULL){
+
+            return redirect('admin-login');
+        }
+        else{
+            return view('admin_dashboard');
+        }
+
+
+
+
+
     }
   public function admin_logout(){
 

@@ -1,4 +1,6 @@
-
+<?php
+use Illuminate\Support\Facades\Session;
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +54,7 @@
                     <li class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="halflings-icon white user"></i>
+                            <?php ?>
                             <?php  echo Session::get('admin_name')?>
                             <span class="caret"></span>
                         </a>
