@@ -8,6 +8,7 @@
         {{ session('status') }}
     </div>
     @endif
+
 <div class="box-content">
 
  <!--   <form class="form-horizontal" method="post" action="{{url('save-category')}}"> -->

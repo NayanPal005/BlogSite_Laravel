@@ -32,4 +32,5 @@ Route::post('/admin-login-check','AdminController@admin_login_check');
 Route::get('/add-blog','AdminController@add_blog');
 Route::get('/manage-blog','AdminController@manage_blog');
 Route::get('/add-category','AdminController@add_category');
+Route::get('/manage-category','SuperAdminController@manage_category');
 Route::post('/save-category','AdminController@save_category');

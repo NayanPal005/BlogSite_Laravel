@@ -14,12 +14,12 @@ class CreateTblCategoryTable extends Migration
     public function up()
     {
         Schema::create('tbl_category', function (Blueprint $table) {
+
             $table->increments('category_id');
             $table->string('category_name');
             $table->string('category_slug');
             $table->text('category_description');
-         
-            $table->boolean('category_status');
+            $table->tinyInteger('category_status');
             $table->timestamps();
         });
     }

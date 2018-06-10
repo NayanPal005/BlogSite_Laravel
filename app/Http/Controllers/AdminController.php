@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Session;
 
 use Carbon\Carbon;
 
-
+Session::start();
 class AdminController extends Controller
 {
     /**
@@ -32,9 +32,25 @@ class AdminController extends Controller
 
     public function admin_login(){
 
-        return view('admin.login');
+         $this->authChecking();
+
+
+
+      return  view('admin.login');
 
     }
+    public function authChecking(){
+
+        $admin_id=Session::get('admin_id');
+
+        if ($admin_id!=NULL){
+
+            return redirect('admin-dashboard');
+        }
+
+
+    }
+
 
     public  function admin_login_check(Request $request){
 
@@ -62,7 +78,9 @@ class AdminController extends Controller
 
            // echo $admin_id;
 
-           return redirect('admin-dashboard');
+           return view('admin_dashboard');
+
+
 
 
         }
@@ -78,6 +96,7 @@ class AdminController extends Controller
 
 
     }
+
     public function add_blog(){
 
        $add_blog=view('admin.add_blog');
@@ -122,6 +141,8 @@ class AdminController extends Controller
 
 
     }
+
+
 
     /**
      * Show the form for creating a new resource.

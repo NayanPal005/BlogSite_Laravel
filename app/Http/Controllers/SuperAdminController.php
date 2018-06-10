@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use PHPUnit\Framework\Constraint\IsFalse;
+
+Session::start();//ei ta dite hoi logout er por jate bach dile dashboard e na duke
 
 class SuperAdminController extends Controller
 {
@@ -20,7 +24,10 @@ class SuperAdminController extends Controller
 
     public function index()
     {
-      return  $this->authChecking();
+
+      return $this->authChecking();
+
+
        // return view('admin_dashboard');
     }
     public function authChecking(){
@@ -29,15 +36,16 @@ class SuperAdminController extends Controller
 
         if ($admin_id==NULL){
 
-            return redirect('admin-login');
+            return view('admin.login');
+
+          //  return redirect('admin-login');
+        }
+        else if ($admin_id!=NULL){
+            return redirect('admin-dashboard');
         }
         else{
             return view('admin_dashboard');
         }
-
-
-
-
 
     }
   public function admin_logout(){
@@ -52,6 +60,28 @@ class SuperAdminController extends Controller
 
 
   }
+    public function manage_category(){
+
+      $all_category=DB::table('tbl_category')->get();
+
+     // echo '<pre>';
+
+     // print_r($all_category);
+
+
+        $add_category=view('pages.manage_category')
+
+                        ->with('all_category',$all_category);
+
+        return view('admin_dashboard')->with('main_content',$add_category);
+
+
+
+
+
+
+
+    }
     /**
      * Show the form for creating a new resource.
      *
