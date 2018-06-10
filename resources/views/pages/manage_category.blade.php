@@ -1,11 +1,11 @@
 @extends('admin_dashboard')
 @section('main_content')
+    <?php
 
-<?php
-echo "<pre>";
-//print_r($all_category);
-//exit();
-?>
+    use Illuminate\Support\Facades\Session;
+
+    ?>
+
 
 <h1 style="color: deeppink; text-align: center ">Manage Category</h1>
 
@@ -30,10 +30,61 @@ echo "<pre>";
             <td style="color: #0e90d2"><?php echo $all_category->category_id?></td>
 
                 <td style="color: #0e90d2"><?php echo $all_category->category_name ?></td>
+
             <td style="color: #985f0d"><?php echo $all_category->category_description ?></td>
-                <td style="color: slateblue"><?php echo $all_category->category_status   ?></td>
+
+                <td style="color: slateblue">
+
+                    <?php if ($all_category->category_status==1) {
+
+                        echo 'Publish';
+                        }
+
+                        else {
+
+                         echo "Not Publish";
+
+                        }
 
 
+                        ?>
+                </td>
+            <td>
+                <?php if ($all_category->category_status==1) { ?>
+
+                    <a href="" title="Unpublish"> <i class="fa fa-thumbs-down" style="font-size:24px"></i></a>
+                    <?php } ?>
+
+                    <?php if ($all_category->category_status==0) { ?>
+
+                <a href="" title="Publish"> <i class="fa fa-thumbs-up" style="font-size:24px"></i></a>
+
+                    <?php } ?>
+
+                    <?php
+
+
+                        $access_label=Session::get('access_label');
+
+                       // echo $access_label;
+
+                        if ($access_label==1){
+                            ?>
+                            <a href="" title="Edit"> <i class="fa fa-edit" style="font-size:24px"></i></a>
+                <a href="" title="delete">
+                    <i class="fa fa-trash" style="font-size:24px"></i>
+                </a>
+                      <?php   } ?>
+
+
+
+
+
+
+
+            </td>
+
+            <?php  ?>
 
         </tr>
 

@@ -132,9 +132,10 @@
 
 <script src="{{asset('public/admin_asset/js/jquery.cookie.js')}}"></script>
 
-<script src='{{asset('public/admin_asset/js/fullcalendar.min.js')}}'></script>
+<script src="{{asset('public/admin_asset/js/fullcalendar.min.js')}}"></script>
 
-<script src='{{asset('public/admin_asset/js/jquery.dataTables.min.js')}}'></script>
+<script src="{{asset('public/admin_asset/js/jquery.dataTables.min.js')}}"></script>
+
 
 <script src="{{asset('public/admin_asset/js/excanvas.js')}}"></script>
 <script src="{{asset('public/admin_asset/js/jquery.flot.js')}}"></script>

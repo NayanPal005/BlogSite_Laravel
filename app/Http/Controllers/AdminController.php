@@ -75,6 +75,7 @@ class AdminController extends Controller
 
             Session::put('admin_id',$result->admin_id);
             Session::put('admin_name','$result->admin_name');
+            Session::put('access_label',$result->access_label);
 
            // echo $admin_id;
 
