@@ -91,12 +91,22 @@ class SuperAdminController extends Controller
     }
     public function publish_category($id){
 
-        echo $id;
+      //  echo $id;
         DB::table('tbl_category')
             ->where('category_id',$id)
             ->update(['category_status'=>1]);
 
         return redirect('/manage-category');
+    }
+    public function delete_category($id){
+
+     //   echo $id;
+
+        DB::table('tbl_category')->where('category_id',$id)
+
+            ->update(['category_status'=>3]);
+
+        return redirect('manage-category');
     }
 
     public function show_category(){

@@ -40,9 +40,14 @@
                         echo 'Publish';
                         }
 
-                        else {
+                        else if($all_category->category_status==0) {
 
                          echo "Not Publish";
+
+                        }
+                        else if($all_category->category_status==3){
+
+                        echo "Deleted";
 
                         }
 
@@ -50,17 +55,17 @@
                         ?>
                 </td>
             <td>
-                <?php if ($all_category->category_status==1) { ?>
+                <?php if ($all_category->category_status==1 || $all_category->category_status==3 ) { ?>
 
-                    <a href="{{\Illuminate\Support\Facades\URL::to('unpublish-category/'.$all_category->category_id)}}" title="Unpublish">
+                    <a class="btn btn-danger" href="{{\Illuminate\Support\Facades\URL::to('unpublish-category/'.$all_category->category_id)}}" title="Unpublishd">
                         <!-- url e id pass er somoi /(slash) ta always kintu shes e dite hbe jate url e slash dekha jai -->
                         <i class="fa fa-thumbs-down" style="font-size:24px"></i></a>
 
                     <?php } ?>
 
-                    <?php if ($all_category->category_status==0) { ?>
+                    <?php if ($all_category->category_status==0 || $all_category->category_status==3) { ?>
 
-                <a href="{{\Illuminate\Support\Facades\URL::to('publish-category/'.$all_category->category_id)}}" title="Publish"> <i class="fa fa-thumbs-up" style="font-size:24px"></i></a>
+                <a class="btn btn-success" href="{{\Illuminate\Support\Facades\URL::to('publish-category/'.$all_category->category_id)}}" title="Publish"> <i class="fa fa-thumbs-up" style="font-size:24px"></i></a>
 
                     <?php } ?>
 
@@ -73,11 +78,21 @@
 
                         if ($access_label==1){
                             ?>
-                            <a href="" title="Edit"> <i class="fa fa-edit" style="font-size:24px"></i></a>
-                <a href="" title="delete">
-                    <i class="fa fa-trash" style="font-size:24px"></i>
-                </a>
-                      <?php   } ?>
+
+                    <?php if ($all_category->category_status==0 || $all_category->category_status==1 || $all_category->category_status!=3  ) { ?>
+                    <a class="btn btn-danger"  href="{{\Illuminate\Support\Facades\URL::to('delete-category/'.$all_category->category_id)}}" title="Delete">
+
+                        <i class="halflings-icon white trash"></i>
+
+                    </a>
+                    <?php } ?>
+
+                    <?php if ($all_category->category_status==0 || $all_category->category_status==1 ) { ?>
+                    <a class="btn btn-success" title="Update" href=""> <!-- This is  update -->
+                        <i class="halflings-icon icon-edit"></i></a>
+                    <?php } ?>
+
+                <?php   } ?>
 
 
 
