@@ -34,3 +34,6 @@ Route::get('/manage-blog','AdminController@manage_blog');
 Route::get('/add-category','AdminController@add_category');
 Route::get('/manage-category','SuperAdminController@manage_category');
 Route::post('/save-category','AdminController@save_category');
+
+Route::get('/unpublish-category/{id}','SuperAdminController@unpublish_category');
+Route::get('/publish-category/{id}','SuperAdminController@publish_category');

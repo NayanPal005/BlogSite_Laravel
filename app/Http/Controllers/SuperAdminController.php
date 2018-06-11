@@ -76,8 +76,32 @@ class SuperAdminController extends Controller
         return view('admin_dashboard')->with('main_content',$add_category);
 
 
+    }
+    public  function unpublish_category($id){
+
+       // echo $id;
+
+        DB::table('tbl_category')
+            ->where('category_id', $id)//id er sate id match
+            ->update(['category_status' => 0]);//ekane eshe column name
+
+        return redirect('/manage-category');
 
 
+    }
+    public function publish_category($id){
+
+        echo $id;
+        DB::table('tbl_category')
+            ->where('category_id',$id)
+            ->update(['category_status'=>1]);
+
+        return redirect('/manage-category');
+    }
+
+    public function show_category(){
+
+        $all_category=DB::table('tbl_category')->get();
 
 
 

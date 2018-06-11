@@ -98,6 +98,7 @@ class AdminController extends Controller
 
     }
 
+
     public function add_blog(){
 
        $add_blog=view('admin.add_blog');

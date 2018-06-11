@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
 {
@@ -13,7 +14,20 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-       $home_content=view('pages.home_content');
+        $all_published_category=DB::table('tbl_category')
+          //  ->pluck('category_name');//pluck use kore just category_name column tar data anlam :)
+         ->where('category_status',1)//sob date jader status 1
+
+            ->get();
+
+
+        //print_r($all_published_category);
+       //exit();
+        $home_content=view('pages.home_content')
+
+                      ->with('all_published_category',$all_published_category);
+
+        //$all_published_category er data 'all_published_category' hisebe pataisi,,jeta home e variable hiebe kaj korbe
 
         return view('master')->with('main_content',$home_content);
     }

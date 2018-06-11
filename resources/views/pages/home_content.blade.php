@@ -57,13 +57,21 @@
             <div id="templatemo_sidebar">
 
                 <h4>Categories</h4>
+                <?php
+
+                //   print_r($all_category);
+                   foreach ($all_published_category as $all_published_category):
+
+                ?>
+
                 <ul class="templatemo_list">
-                    <li><a href="index.html">Praesent adipiscing</a></li>
-                    <li><a href="index.html">Duis sed justo</a></li>
-                    <li><a href="index.html">Mauris vulputate</a></li>
-                    <li><a href="index.html">Nam auctor</a></li>
-                    <li><a href="index.html">Aliquam quam</a></li>
+                    <li><a href="index.html"><?php echo  $all_published_category->category_name ?></a></li>
+                    {{--<li><a href="index.html">Duis sed justo</a></li>--}}
+                    {{--<li><a href="index.html">Mauris vulputate</a></li>--}}
+                    {{--<li><a href="index.html">Nam auctor</a></li>--}}
+                    {{--<li><a href="index.html">Aliquam quam</a></li>--}}
                 </ul>
+                <?php endforeach; ?>
 
                 <div class="cleaner_h40"></div>
 

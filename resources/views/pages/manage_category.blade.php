@@ -52,12 +52,15 @@
             <td>
                 <?php if ($all_category->category_status==1) { ?>
 
-                    <a href="" title="Unpublish"> <i class="fa fa-thumbs-down" style="font-size:24px"></i></a>
+                    <a href="{{\Illuminate\Support\Facades\URL::to('unpublish-category/'.$all_category->category_id)}}" title="Unpublish">
+                        <!-- url e id pass er somoi /(slash) ta always kintu shes e dite hbe jate url e slash dekha jai -->
+                        <i class="fa fa-thumbs-down" style="font-size:24px"></i></a>
+
                     <?php } ?>
 
                     <?php if ($all_category->category_status==0) { ?>
 
-                <a href="" title="Publish"> <i class="fa fa-thumbs-up" style="font-size:24px"></i></a>
+                <a href="{{\Illuminate\Support\Facades\URL::to('publish-category/'.$all_category->category_id)}}" title="Publish"> <i class="fa fa-thumbs-up" style="font-size:24px"></i></a>
 
                     <?php } ?>
 
