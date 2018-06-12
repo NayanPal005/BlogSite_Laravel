@@ -20,12 +20,27 @@ class WelcomeController extends Controller
 
             ->get();
 
+        $all_blog=DB::table('tbl_blog')->get();
+
+       // print_r($all_blog);
+
+       // $category_id=$all_blog->category_id;
+     //   echo $category_id;
+        //eta diye home content e blog er niche blog category tulsi
+      //  $all_category=DB::table('tbl_category')
+           // ->where('category_id',$category_id)
+         //   ->first();
+
+
+
 
         //print_r($all_published_category);
        //exit();
         $home_content=view('pages.home_content')
 
-                      ->with('all_published_category',$all_published_category);
+                      ->with('all_published_category',$all_published_category)
+                      ->with('all_blog',$all_blog);
+                     // ->with('all_category',$all_category);
 
         //$all_published_category er data 'all_published_category' hisebe pataisi,,jeta home e variable hiebe kaj korbe
 
