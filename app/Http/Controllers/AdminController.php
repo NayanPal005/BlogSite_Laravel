@@ -101,10 +101,38 @@ class AdminController extends Controller
 
     public function add_blog(){
 
-       $add_blog=view('admin.add_blog');
+        //category table er data niye blog add er somoi blog category te use korbo
+        $all_category=DB::table('tbl_category')->get();
+        //echo '<pre>';
+       // print_r($all_category);
+
+
+
+       $add_blog=view('admin.add_blog')->with('all_category',$all_category);
 
        return view('admin_dashboard')->with('main_content',$add_blog);
     }
+    public function save_blog(Request $request){
+
+        $data=array();
+       // dd($request->all());
+       // exit();
+        $data['blog_title']=$request->blog_title;
+        $data['category_id']=$request->category_id;
+        $data['author_name']=$request->author_name;
+        $data['blog_short_description']=$request->blog_short_description;
+        $data['blog_long_description']=$request->blog_long_description;
+        $data['publication_status']=$request->publication_status;
+        $data['created_at']=Carbon::now();
+
+        DB::table('tbl_blog')->insert($data);
+
+        return redirect('add-blog')->with('status', 'Blog Inserted Successfully!');
+
+    }
+
+
+
     public function manage_blog(){
 
         echo "Hello admin !Manage You Blog";
