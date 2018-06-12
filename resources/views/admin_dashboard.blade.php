@@ -35,6 +35,21 @@ use Illuminate\Support\Facades\Session;
     <![endif]-->
     <!-- start: Favicon -->
     <link rel="shortcut icon" href="{{asset('public/admin_asset/img/favicon.ico')}}>">
+    <script type="text/javascript">
+
+        function checkDelete() {
+
+            $check=confirm('Are You sure want to delete?');
+
+            if($check){
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }
+    </script>
     <!-- end: Favicon -->
 </head>
 <body>

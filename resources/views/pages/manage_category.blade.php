@@ -85,10 +85,16 @@
                         <i class="halflings-icon white trash"></i>
 
                     </a>
+                    <a class="btn btn-danger"  href="{{\Illuminate\Support\Facades\URL::to('hardDelete-category/'.$all_category->category_id)}}" onclick="return checkDelete()" title="PermanentDelete">
+
+                        <i class="fa fa-remove" style="font-size:24px"></i>
+
+                    </a>
+
                     <?php } ?>
 
                     <?php if ($all_category->category_status==0 || $all_category->category_status==1 ) { ?>
-                    <a class="btn btn-success" title="Update" href=""> <!-- This is  update -->
+                    <a class="btn btn-success" title="Update" href="{{\Illuminate\Support\Facades\URL::to('edit-category/'.$all_category->category_id)}}"> <!-- This is  update -->
                         <i class="halflings-icon icon-edit"></i></a>
                     <?php } ?>
 

@@ -38,3 +38,6 @@ Route::post('/save-category','AdminController@save_category');
 Route::get('/unpublish-category/{id}','SuperAdminController@unpublish_category');
 Route::get('/publish-category/{id}','SuperAdminController@publish_category');
 Route::get('/delete-category/{id}','SuperAdminController@delete_category');
+Route::get('/hardDelete-category/{id}','SuperAdminController@hardDelete_category');
+Route::get('/edit-category/{id}','SuperAdminController@edit_category');
+Route::post('/edited-category','SuperAdminController@edited_category');
