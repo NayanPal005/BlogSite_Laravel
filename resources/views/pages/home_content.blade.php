@@ -2,10 +2,10 @@
 @section('main_content')
 
 <?php
-//          echo '<pre>';
-//          print_r($all_category);
-//           exit();
-////
+     // echo '<pre>';
+        // print_r($all_blog);
+      //exit();
+//////
 //            ?>
 
 
@@ -28,7 +28,8 @@
 
                         <strong>Author:</strong><?php echo $all_blog->author_name; ?> <strong>Category:</strong> <a href="#"></a>
 
-                        <a href="http://www.templatemo.com/page/1" target="_parent"><img src="{{asset('public/front_end_asset/images/templatemo_image_02.jpg')}}" alt="image" /></a>
+
+                        <a href="http://www.templatemo.com/page/1" target="_parent"><img width="100%" class="img-circle" src="{{ URL::asset($all_blog->blog_image) }}"></a>
 
                         <p><?php echo $all_blog->blog_short_description; ?></p>
                         <p> <?php echo $all_blog->blog_long_description; ?></p>

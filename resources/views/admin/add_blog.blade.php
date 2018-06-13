@@ -16,7 +16,7 @@
 
     <div class="box-content">
 
-        {!! Form::open(['url' => 'save-blog','method'=>'post','class'=>'form-horizontal']) !!}
+        {!! Form::open(['url' => 'save-blog','method'=>'post', 'enctype'=>'multipart/form-data', 'class'=>'form-horizontal']) !!}
 
         @csrf
 

@@ -116,6 +116,9 @@ class AdminController extends Controller
 
         $data=array();
        // dd($request->all());
+        //echo '<pre>';
+      //  print_r($_FILES);
+       // exit();
        // exit();
         $data['blog_title']=$request->blog_title;
         $data['category_id']=$request->category_id;
@@ -125,9 +128,33 @@ class AdminController extends Controller
         $data['publication_status']=$request->publication_status;
         $data['created_at']=Carbon::now();
 
-        DB::table('tbl_blog')->insert($data);
+        /* ===================image upload=========*/
+        $files=$request->file('blog_image');
+        $fileName=$files->getClientOriginalName();
+        $picture=date('His').$fileName;
 
-        return redirect('add-blog')->with('status', 'Blog Inserted Successfully!');
+        $image_url='public/adminImages/'.$picture;
+
+        $destinationPath=base_path().'/public/adminImages';
+
+        $success=$files->move($destinationPath,$picture);
+
+        if ($success) {
+            $data['blog_image']=$image_url;
+
+
+            DB::table('tbl_blog')->insert($data);
+
+            return redirect('add-blog')->with('status', 'Blog Inserted Successfully!');
+        }
+        else{
+
+          $error=  $files->getErrorMessage();
+
+
+
+
+        }
 
     }
 
