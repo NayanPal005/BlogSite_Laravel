@@ -38,6 +38,8 @@ Route::get('/delete-blog/{id}','SuperAdminController@delete_blog');
 Route::get('/unpublish-blog/{id}','SuperAdminController@unpublish_blog');
 Route::get('/publish-blog/{id}','SuperAdminController@publish_blog');
 Route::get('/harddelete-blog/{id}','SuperAdminController@harddelete_blog');
+Route::get('/edit-blog/{id}','SuperAdminController@edit_blog');
+Route::post('/update-blog','SuperAdminController@update_blog');
 
 
 

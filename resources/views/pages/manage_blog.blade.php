@@ -103,7 +103,7 @@
                 </a>
 
 
-                <a class="btn btn-success" title="Update" href="{{ \Illuminate\Support\Facades\URL::to('delete-blog/'.$all_blog->blog_id)}}"> <!-- This is  update -->
+                <a class="btn btn-success" title="Update" href="{{ \Illuminate\Support\Facades\URL::to('edit-blog/'.$all_blog->blog_id)}}"> <!-- This is  update -->
                     <i class="halflings-icon icon-edit"></i></a>
 
                 <?php } ?>

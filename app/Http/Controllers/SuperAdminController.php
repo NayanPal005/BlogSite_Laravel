@@ -111,6 +111,47 @@ class SuperAdminController extends Controller
 
     }
 
+    public function edit_blog($id){
+
+       // DB::table('tbl_blog')->where('blog_id',$id)->update()
+        $all_data = DB::table('tbl_blog')->where('blog_id', $id)
+            ->first();
+
+//     echo '<pre>';
+//     print_r($all_data);
+//     exit();
+
+
+        $edit_blog = view('admin.edit_blog')->with('all_data', $all_data);
+
+        return view('admin_dashboard')->with('main_content', $edit_blog);
+
+
+
+    }
+    public function update_blog(Request $request){
+
+      //  dd($request->all());
+        $id = $request->blog_id;
+
+        // echo $id;
+        //dd($request->all());
+        // $data=array();
+        $data['blog_title'] = $request->blog_title;
+        $data['author_name'] = $request->author_name;
+        $data['blog_short_description'] = $request->blog_short_description;
+        $data['blog_long_description'] = $request->blog_long_description;
+      
+        $data['blog_image'] = $request->blog_image;
+
+        DB::table('tbl_blog')->where('blog_id', $id)
+            ->update($data);
+
+        return redirect('manage-blog');
+
+
+    }
+
 
     public function manage_category()
     {
