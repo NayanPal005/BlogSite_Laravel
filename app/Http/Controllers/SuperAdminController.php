@@ -61,6 +61,56 @@ class SuperAdminController extends Controller
 
 
     }
+    public function manage_blog(){
+
+        $all_blog = DB::table('tbl_blog')->get();
+
+        $add_blog = view('pages.manage_blog')
+
+              ->with('all_blog', $all_blog);
+
+        return view('admin_dashboard')->with('main_content', $add_blog);
+
+
+    }
+
+    public function delete_blog($id){
+
+       // echo $id;
+        DB::table('tbl_blog')->where('blog_id',$id)
+
+            ->update(['publication_status'=>2]);
+
+        return redirect('manage-blog');
+    }
+    public function unpublish_blog($id){
+
+        DB::table('tbl_blog')
+            ->where('blog_id', $id)//id er sate id match
+            ->update(['publication_status' => 0]);//ekane eshe column name
+
+        return redirect('/manage-blog');
+    }
+
+    public function publish_blog($id){
+
+        DB::table('tbl_blog')
+            ->where('blog_id', $id)//id er sate id match
+            ->update(['publication_status' => 1]);//ekane eshe column name
+
+        return redirect('/manage-blog');
+    }
+
+    public function harddelete_blog($id){
+
+        DB::table('tbl_blog')->where('blog_id', $id)
+
+            ->delete();
+
+        return redirect('manage-blog');
+
+    }
+
 
     public function manage_category()
     {

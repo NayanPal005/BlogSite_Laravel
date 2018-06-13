@@ -160,10 +160,7 @@ class AdminController extends Controller
 
 
 
-    public function manage_blog(){
 
-        echo "Hello admin !Manage You Blog";
-    }
     public function add_category(){
 
         $add_category=view('admin.add_category');

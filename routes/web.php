@@ -33,11 +33,19 @@ Route::post('/admin-login-check','AdminController@admin_login_check');
 /*  admin panel routes start  */
 Route::get('/add-blog','AdminController@add_blog');
 Route::post('/save-blog','AdminController@save_blog');
-Route::get('/manage-blog','AdminController@manage_blog');
+Route::get('/manage-blog','SuperAdminController@manage_blog');
+Route::get('/delete-blog/{id}','SuperAdminController@delete_blog');
+Route::get('/unpublish-blog/{id}','SuperAdminController@unpublish_blog');
+Route::get('/publish-blog/{id}','SuperAdminController@publish_blog');
+Route::get('/harddelete-blog/{id}','SuperAdminController@harddelete_blog');
+
+
+
+
+
 Route::get('/add-category','AdminController@add_category');
 Route::get('/manage-category','SuperAdminController@manage_category');
 Route::post('/save-category','AdminController@save_category');
-
 Route::get('/unpublish-category/{id}','SuperAdminController@unpublish_category');
 Route::get('/publish-category/{id}','SuperAdminController@publish_category');
 Route::get('/delete-category/{id}','SuperAdminController@delete_category');

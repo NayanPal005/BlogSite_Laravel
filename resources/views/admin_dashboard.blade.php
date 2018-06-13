@@ -1,3 +1,10 @@
+
+<?php
+//        echo '<pre>';
+//        print_r($all_blog);
+//        exit();
+//
+//        ?>
 <?php
 
 use Illuminate\Support\Facades\Session;
