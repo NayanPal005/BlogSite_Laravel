@@ -27,6 +27,7 @@
             <hr style="color: dodgerblue;">
 
             <input type="hidden" id="custId" name="blog_id" value="<?php echo $all_data->blog_id?>">
+            <input type="hidden" name="blogOld_image" value="<?php echo $all_data->blog_image?>">
             <div class="control-group">
                 <label class="control-label" for="typeahead">Blog Title</label>
                 <div class="controls">
@@ -101,7 +102,7 @@
             {{--<input type="file" placeholder="Choose Image  " name="product_image" >--}}
 
 
-            <input type="hidden" name="blogOld_image" value="<?php echo $all_data->blog_image?>">
+
 
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Update</button>

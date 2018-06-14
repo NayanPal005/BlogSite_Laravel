@@ -113,22 +113,13 @@ class SuperAdminController extends Controller
 
     public function edit_blog($id){
 
-       // DB::table('tbl_blog')->where('blog_id',$id)->update()
+
         $all_data = DB::table('tbl_blog')->where('blog_id', $id)
             ->first();
 
-//     echo '<pre>';
-//     print_r($all_data);
-//     exit();
+
         $all_category = DB::table('tbl_category')->get();
 
-        // echo '<pre>';
-
-        // print_r($all_category);
-
-
-       // $add_category = view('pages.manage_category')
-         //   ->with('all_category', $all_category);
 
         $edit_blog = view('admin.edit_blog')
             ->with('all_data', $all_data)
@@ -140,57 +131,64 @@ class SuperAdminController extends Controller
 
     }
     public function update_blog(Request $request){
+        $blog_id = $request->blog_id;
 
-      //  dd($request->all());
         $data=array();
-
-        if ($_FILES['blog_image']['name']=='' || $_FILES['blog_image']['size']==0){
-
-            $data['blog_image']=$request->blogOld_image;
-            // $this->products_model->edited_products_model($details);
-           unlink($request->blogOld_image);
-        }
-
-        else{
-            $data['blog_image']=$this->upload_product_image();
-            // $this->products_model->edited_products_model( $details);
-            unlink($this->input->post('productOld_image',True));
-        }
-
-        $grabbedID=$this->input->post('product_id');
-        // echo $grabbedID;
-        $details['product_name']=$this->input->post('product_name');
-
-
-
-
-
-
-
-
-
-
-
-
-        $id = $request->blog_id;
-
-        // echo $id;
-        //dd($request->all());
-        // $data=array();
         $data['blog_title'] = $request->blog_title;
         $data['author_name'] = $request->author_name;
         $data['blog_short_description'] = $request->blog_short_description;
         $data['blog_long_description'] = $request->blog_long_description;
-
         $data['blog_image'] = $request->blog_image;
 
-        DB::table('tbl_blog')->where('blog_id', $id)
-            ->update($data);
+        if ($_FILES['blog_image']['name']=='' || $_FILES['blog_image']['size']==0){
 
+            $data['blog_image']=$request->blogOld_image;
+
+            DB::table('tbl_blog')
+                ->where('blog_id',$blog_id)
+                ->update($data);
+
+
+            unlink($request->blogOld_image);
+
+            return redirect('manage-blog')->with('status', 'Blog Updated Successfully!');
+            // $this->products_model->edited_products_model($details);
+
+        }
+
+        else{
+            $files=$request->file('blog_image');//image ta
+            $fileName=$files->getClientOriginalName();//extension of the file or image
+            $picture=date('His').$fileName;//image + extension
+
+            $image_url='public/adminImages/'.$picture;//folder e nilam
+
+            $destinationPath=base_path().'/public/adminImages';//folder soho path bole dilam
+
+            $success=$files->move($destinationPath,$picture);//move kore dilam destination e
+
+                if ($success) {
+                    $data['blog_image']=$image_url;
+
+                    DB::table('tbl_blog')
+                        ->where('blog_id',$blog_id)
+                        ->update($data);
+                    unlink($request->blogOld_image);
+
+                    return redirect('manage-blog')->with('status', 'Blog Updated Successfully!');
+                }
+                else{
+
+                    $error=  $files->getErrorMessage();
+
+                }
+
+        }
         return redirect('manage-blog');
 
 
     }
+
 
 
 
