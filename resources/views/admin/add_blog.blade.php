@@ -25,6 +25,7 @@
                 <hr>
                 <label for="name"><b>Blog Title</b></label>
                 <input type="text" placeholder="Enter Blog Title" name="blog_title"  required>
+
             <label  for="selectError3"><b>Blog Category</b></label>
 
             <select name="category_id" id="selectError3">

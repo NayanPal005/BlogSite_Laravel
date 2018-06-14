@@ -17,7 +17,7 @@
     <div class="box-content">
 
 
-        {!! Form::open(['url' => 'update-blog','method'=>'post','class'=>'form-horizontal']) !!}
+        {!! Form::open(['url' => 'update-blog','method'=>'post','enctype'=>'multipart/form-data','name'=>'edit_blog','class'=>'form-horizontal']) !!}
 
         @csrf
 
@@ -63,8 +63,45 @@
 
         </div>
     </div>
+            <div class="control-group">
+            <label class="control-label"  for="selectError3"><b>Blog Category</b></label>
+                <div class="controls">
+            <select name="category_id"  id="selectError3">
+
+               <?php foreach ($all_category as $all_category): ?>
+                   <option value=""></option>
+                <option value="<?php echo $all_category->category_id ?>"><?php echo $all_category->category_name?></option>
+
+
+                <?php endforeach; ?>
+
+            </select>
+            </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="typeahead">Publication Status</label>
+                <div class="controls">
+                    <select name="publication_status" value='{{asset($all_data->publication_status)}}'  class="span6 typeahead" id="selectError3">
+                        <option value=""></option>
+                        <option value="1">Publish</option>
+                        <option value="0">Unpublish</option>
+
+                    </select>
+
+                </div>
+            </div>
+
+
             <label for="description"><b>Blog Image</b></label>
             <input type="file" placeholder="Choose Image  "  name="blog_image" >
+           <img src="{{ URL::asset($all_data->blog_image) }} " height="50" width="50">
+
+
+           {{--// <label for="description"><b>Product Image</b></label>--}}
+            {{--<input type="file" placeholder="Choose Image  " name="product_image" >--}}
+
+
+            <input type="hidden" name="blogOld_image" value="<?php echo $all_data->blog_image?>">
 
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Update</button>
@@ -75,5 +112,21 @@
         {!! Form::close() !!}
 
     </div>
+
+    <script type="text/javascript">
+
+        document.forms['edit_blog'].elements['publication_status'].value='<?php echo $all_data->publication_status?>';
+        document.forms['edit_blog'].elements['category_id'].value='<?php echo $all_data->category_id?>';
+        /*
+
+        ===================Very Very Important for Dropdown bt JAVASCRIPT
+        =======edit_blog=== name er ei form er  ===publication_status== nam er field er sate jodi
+        database theke asa ===publication_status ==== er value same hoi tahole select hoye jao
+
+
+
+         */
+
+    </script>
 
 @endsection
