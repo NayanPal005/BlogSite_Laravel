@@ -31,7 +31,7 @@
 
                         <p><?php echo $all_blog->blog_short_description; ?></p>
                         <p> <?php echo $all_blog->blog_long_description; ?></p>
-                        <p><a href="blog_post.html">24 Comments</a> | <a href="blog_post.html">Continue reading...</a>                </p>
+                        <p><a href="{{\Illuminate\Support\Facades\URL::to('/blog-details/'.$all_blog->blog_id)}}">Continue reading...</a>                </p>
                     </div>
                     <div class="cleaner"></div>
                 </div>
@@ -64,7 +64,7 @@
 
                 <div class="cleaner_h40"></div>
 
-                <h4><a href="{{\Illuminate\Support\Facades\URL::to('latest-blog')}}">Latest Blog</a></h4>
+                <h4>Latest Blog</h4>
                 <?php
                 $latest_blog = DB::table('tbl_blog')
                     ->latest()

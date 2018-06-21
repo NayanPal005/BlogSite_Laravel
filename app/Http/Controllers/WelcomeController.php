@@ -65,6 +65,20 @@ class WelcomeController extends Controller
 //
 //
 //    }
+    public function blog_details($id){
+
+
+        $blog_info=DB::table('tbl_blog')
+            ->where('blog_id',$id)
+            ->first();
+
+        $blog_details=view('pages.blog_details')
+                ->with('blog_info',$blog_info);
+
+        return view('master')->with('main_content',$blog_details);
+
+    }
+
 
     public function portfolio(){
         $portfolio=view('pages.portfolio');

@@ -206,11 +206,6 @@ class SuperAdminController extends Controller
 
 
     }
-    public function blog_details($id){
-
-        echo $id;
-
-    }
 
 
 
