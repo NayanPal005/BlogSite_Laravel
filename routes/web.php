@@ -41,6 +41,10 @@ Route::get('/harddelete-blog/{id}','SuperAdminController@harddelete_blog');
 Route::get('/edit-blog/{id}','SuperAdminController@edit_blog');
 Route::post('/update-blog','SuperAdminController@update_blog');
 
+//Route::get('/blog-details/{id}','SuperAdminController@blog_details');
+Route::get('/latest-blog','WelcomeController@latest_blog');
+
+
 
 
 

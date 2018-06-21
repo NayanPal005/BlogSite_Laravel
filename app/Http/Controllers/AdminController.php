@@ -30,6 +30,7 @@ class AdminController extends Controller
 
 
 
+
     public function admin_login(){
 
          $this->authChecking();

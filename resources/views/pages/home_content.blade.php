@@ -1,13 +1,11 @@
-@extends('master')
-@section('main_content')
+   @extends('master')
+   @section('main_content')
 
-<?php
-     // echo '<pre>';
-        // print_r($all_blog);
-      //exit();
-//////
-//            ?>
-
+        <?php
+        // echo '<pre>';
+      //  print_r($latest_blog);
+       // exit();
+           ?>
 
 <div id="templatemo_main_wrapper">
     <div id="templatemo_main">
@@ -24,7 +22,7 @@
                     </div>
                     <div class="post_content">
 
-                        <h2><a href="blog_post.html"><?php echo $all_blog->blog_title; ?></a></h2>
+                        <h2><a href="{{\Illuminate\Support\Facades\URL::to('/blog-details/'.$all_blog->blog_id)}}"><?php echo $all_blog->blog_title; ?></a></h2>
 
                         <strong>Author:</strong><?php echo $all_blog->author_name; ?> <strong>Category:</strong> <a href="#"></a>
 
@@ -56,7 +54,7 @@
                 ?>
 
                 <ul class="templatemo_list">
-                    <li><a href="index.html"><?php echo  $all_published_category->category_name ?></a></li>
+                    <li><a href=""><?php echo  $all_published_category->category_name ?></a></li>
                     {{--<li><a href="index.html">Duis sed justo</a></li>--}}
                     {{--<li><a href="index.html">Mauris vulputate</a></li>--}}
                     {{--<li><a href="index.html">Nam auctor</a></li>--}}
@@ -66,17 +64,20 @@
 
                 <div class="cleaner_h40"></div>
 
-                <h4>Friends</h4>
+                <h4><a href="{{\Illuminate\Support\Facades\URL::to('latest-blog')}}">Latest Blog</a></h4>
+                <?php
+                $latest_blog = DB::table('tbl_blog')
+                    ->latest()
+                   ->get();
+
+                   ?>
+
+                <?php foreach ($latest_blog as $latest_blogs): ?>
                 <ul class="templatemo_list">
-                    <li><a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a></li>
-                    <li><a href="http://www.flashmo.com" target="_parent">Flash Templates</a></li>
-                    <li><a href="http://www.templatemo.com/page/1" target="_parent">Free Blog Themes</a></li>
-                    <li><a href="http://www.webdesignmo.com/blog" target="_parent">Web Design Blog</a></li>
-                    <li><a href="http://www.koflash.com" target="_parent">Flash Websites Gallery</a></li>
-                    <li><a href="#">Vestibulum laoreet</a></li>
-                    <li><a href="#">Nullam nec mi enim</a></li>
-                    <li><a href="#">Aliquam quam nulla</a></li>
+                    <li><?php echo $latest_blogs->blog_title;?></li>
+
                 </ul>
+                <?php endforeach; ?>
 
                 <div id="ads">
                     <a href="#"><img src="{{asset('public/front_end_asset/images/templatemo_200x100_banner.jpg')}}" alt="banner 1" /></a>
@@ -96,4 +97,4 @@
 
 </div>
 
-    @endsection
+      @endsection

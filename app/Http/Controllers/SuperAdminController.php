@@ -100,6 +100,24 @@ class SuperAdminController extends Controller
 
         return redirect('/manage-blog');
     }
+    public function getpublish_blog(){
+
+       $getpublishBlog= DB::table('tbl_blog')
+            ->select('*')
+            ->where('publication_status',1)
+            ->get();
+
+
+        $published_blog = view('admin.pages.home_content')
+            ->with('getpublishBlog', $getpublishBlog);
+
+
+        return view('admin_dashboard')->with('main_content', $published_blog);
+
+
+
+        // return $getpublishBlog;
+    }
 
     public function harddelete_blog($id){
 
@@ -186,6 +204,11 @@ class SuperAdminController extends Controller
         }
         return redirect('manage-blog');
 
+
+    }
+    public function blog_details($id){
+
+        echo $id;
 
     }
 

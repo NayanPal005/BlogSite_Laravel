@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
@@ -25,8 +26,8 @@ class WelcomeController extends Controller
        // print_r($all_blog);
 
        // $category_id=$all_blog->category_id;
-     //   echo $category_id;
-        //eta diye home content e blog er niche blog category tulsi
+      //   echo $category_id;
+        ////eta diye home content e blog er niche blog category tulsi
       //  $all_category=DB::table('tbl_category')
            // ->where('category_id',$category_id)
          //   ->first();
@@ -35,7 +36,9 @@ class WelcomeController extends Controller
 
 
         //print_r($all_published_category);
+
        //exit();
+
         $home_content=view('pages.home_content')
 
                       ->with('all_published_category',$all_published_category)
@@ -46,6 +49,22 @@ class WelcomeController extends Controller
 
         return view('master')->with('main_content',$home_content);
     }
+
+    ////////////////////////////latest_blog=======================================/////////55555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
+
+//    public function latest_blog(){
+//
+//        $latest_blog = DB::table('tbl_blog')
+//            ->latest()
+//            ->get();
+////         echo '<pre>';
+////        print_r($latest_blog);
+////        exit();
+//       $latest_content= view('pages.home_content')->with('latest_blog',$latest_blog);
+//        return view('master')->with('main_content',$latest_content);
+//
+//
+//    }
 
     public function portfolio(){
         $portfolio=view('pages.portfolio');
@@ -73,9 +92,14 @@ class WelcomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function create()
     {
+
         //
+
     }
 
     /**
@@ -131,6 +155,9 @@ class WelcomeController extends Controller
      */
     public function destroy($id)
     {
+
+
         //
+
     }
 }
