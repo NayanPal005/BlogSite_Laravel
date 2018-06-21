@@ -13,7 +13,8 @@
 
             <div id="templatemo_content">
 
-                <?php  foreach ($all_blog as $all_blog) : ?>
+                <?php // foreach ($all_blog as $all_blog) : ?>
+                <?php  foreach ($all_published_blog as $all_published_blog) : ?>
 
                 <div class="post_section">
 
@@ -22,16 +23,16 @@
                     </div>
                     <div class="post_content">
 
-                        <h2><a href="{{\Illuminate\Support\Facades\URL::to('/blog-details/'.$all_blog->blog_id)}}"><?php echo $all_blog->blog_title; ?></a></h2>
+                        <h2><a href="{{\Illuminate\Support\Facades\URL::to('/blog-details/'.$all_published_blog->blog_id)}}"><?php echo $all_published_blog->blog_title; ?></a></h2>
 
-                        <strong>Author:</strong><?php echo $all_blog->author_name; ?> <strong>Category:</strong> <a href="#"></a>
+                        <strong>Author:</strong><?php echo $all_published_blog->author_name; ?> <strong>Category:</strong> <a href="#"></a>
 
 
-                        <a href="http://www.templatemo.com/page/1" target="_parent"><img width="100%" class="img-circle" src="{{ URL::asset($all_blog->blog_image) }}"></a>
+                        <a href="http://www.templatemo.com/page/1" target="_parent"><img width="100%" class="img-circle" src="{{ URL::asset($all_published_blog->blog_image) }}"></a>
 
-                        <p><?php echo $all_blog->blog_short_description; ?></p>
-                        <p> <?php echo $all_blog->blog_long_description; ?></p>
-                        <p><a href="{{\Illuminate\Support\Facades\URL::to('/blog-details/'.$all_blog->blog_id)}}">Continue reading...</a>                </p>
+                        <p><?php echo $all_published_blog->blog_short_description; ?></p>
+                        <p> <?php echo $all_published_blog->blog_long_description; ?></p>
+                        <p><a href="{{\Illuminate\Support\Facades\URL::to('/blog-details/'.$all_published_blog->blog_id)}}">Continue reading...</a>                </p>
                     </div>
                     <div class="cleaner"></div>
                 </div>

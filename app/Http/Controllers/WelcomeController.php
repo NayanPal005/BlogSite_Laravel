@@ -22,6 +22,10 @@ class WelcomeController extends Controller
             ->get();
 
         $all_blog=DB::table('tbl_blog')->get();
+        $all_published_blog=DB::table('tbl_blog')
+                             ->where('publication_status',1)
+                               ->get();
+
 
        // print_r($all_blog);
 
@@ -42,7 +46,8 @@ class WelcomeController extends Controller
         $home_content=view('pages.home_content')
 
                       ->with('all_published_category',$all_published_category)
-                      ->with('all_blog',$all_blog);
+                      ->with('all_blog',$all_blog)
+                      ->with('all_published_blog',$all_published_blog);
                      // ->with('all_category',$all_category);
 
         //$all_published_category er data 'all_published_category' hisebe pataisi,,jeta home e variable hiebe kaj korbe

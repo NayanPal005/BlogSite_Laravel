@@ -65,6 +65,8 @@ class SuperAdminController extends Controller
 
         $all_blog = DB::table('tbl_blog')->get();
 
+
+
         $add_blog = view('pages.manage_blog')
 
               ->with('all_blog', $all_blog);
