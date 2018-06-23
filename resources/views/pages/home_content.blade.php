@@ -1,5 +1,9 @@
    @extends('master')
    @section('main_content')
+               <?php
+
+
+               ?>
 
         <?php
         // echo '<pre>';
@@ -73,11 +77,33 @@
                     ->limit(3)
                     ->get();
 
+
                    ?>
+
 
                 <?php foreach ($latest_blog as $latest_blogs): ?>
                 <ul class="templatemo_list">
-                    <li><?php echo $latest_blogs->blog_title;?></li>
+                    <li><a href="{{\Illuminate\Support\Facades\URL::to('/blog-details/'.$latest_blogs->blog_id)}}"><?php echo $latest_blogs->blog_title;?></a></li>
+
+                </ul>
+                <?php endforeach; ?>
+
+                <!-- =========================popular Blogs=============================-->
+                <h4>Popular Blog</h4>
+                <?php
+                $popular_blog= \Illuminate\Support\Facades\DB::table('tbl_blog')
+                ->orderBy('hit_counter','desc')
+                    ->limit(5)
+                ->get();
+
+
+                ?>
+
+
+                <?php foreach ($popular_blog as $popular_blog): ?>
+                <ul class="templatemo_list">
+
+                    <li><a href="{{\Illuminate\Support\Facades\URL::to('/blog-details/'.$popular_blog->blog_id)}}"><?php echo $popular_blog->blog_title;?></a></li>
 
                 </ul>
                 <?php endforeach; ?>
