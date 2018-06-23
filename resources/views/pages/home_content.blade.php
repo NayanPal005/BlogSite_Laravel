@@ -68,8 +68,10 @@
                 <h4>Latest Blog</h4>
                 <?php
                 $latest_blog = DB::table('tbl_blog')
-                    ->latest()
-                   ->get();
+                    ->where('publication_status',1)
+                    ->orderby('blog_id','desc')
+                    ->limit(3)
+                    ->get();
 
                    ?>
 

@@ -24,6 +24,7 @@ class WelcomeController extends Controller
         $all_blog=DB::table('tbl_blog')->get();
         $all_published_blog=DB::table('tbl_blog')
                              ->where('publication_status',1)
+                             ->orderBy('blog_id','desc')
                                ->get();
 
 
@@ -76,9 +77,16 @@ class WelcomeController extends Controller
         $blog_info=DB::table('tbl_blog')
             ->where('blog_id',$id)
             ->first();
+        //At First take al data corresponding id
+
+        $data['hit_counter']=$blog_info->hit_counter+1; //adding one value of hit_counter field
+
+        $blog_info=DB::table('tbl_blog')->where('blog_id',$id)->update($data);//updating the only hit_counter field value
+        $blog_infoupdate=DB::table('tbl_blog')->where('blog_id',$id)->first();//get all data with update blog_info with corresponding id
+
 
         $blog_details=view('pages.blog_details')
-                ->with('blog_info',$blog_info);
+                ->with('blog_infoupdate',$blog_infoupdate);
 
         return view('master')->with('main_content',$blog_details);
 

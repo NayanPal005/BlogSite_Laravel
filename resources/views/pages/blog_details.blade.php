@@ -3,8 +3,8 @@
 
     <?php
 //      echo '<pre>';
-//      print_r($blog_info);
-//     exit();
+//      print_r($blog_infoupdate);
+//    exit();
     ?>
 
     <div id="templatemo_main_wrapper">
@@ -22,15 +22,15 @@
                         </div>
                         <div class="post_content">
 
-                            <h2><a href=""><?php echo $blog_info->blog_title?></a></h2>
+                            <h2><a href=""><?php echo $blog_infoupdate->blog_title?></a></h2>
 
-                            <strong>Author:</strong><?php echo $blog_info->author_name; ?> <strong>Category:</strong> <a href="#"></a>
+                            <strong>Author:</strong><?php echo $blog_infoupdate->author_name; ?> <strong>Category:</strong> <a href="#"></a>
 
 
-                            <a href="http://www.templatemo.com/page/1" target="_parent"><img width="100%" class="img-circle" src="{{ URL::asset($blog_info->blog_image) }}"></a>
+                            <a href="http://www.templatemo.com/page/1" target="_parent"><img width="100%" class="img-circle" src="{{ URL::asset($blog_infoupdate->blog_image) }}"></a>
 
-                            <p><?php echo $blog_info->blog_short_description; ?></p>
-                            <p> <?php echo $blog_info->blog_long_description; ?></p>
+                            <p><?php echo $blog_infoupdate->blog_short_description; ?></p>
+                            <p> <?php echo $blog_infoupdate->blog_long_description; ?></p>
 
                         </div>
                     </div>
