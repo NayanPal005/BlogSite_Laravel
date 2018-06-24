@@ -97,13 +97,18 @@ class WelcomeController extends Controller
         $search_blog=$request->search;
         $search_result=DB::table('tbl_blog')
                    ->where('publication_status',1)
+
                     ->where('blog_title','like','%'.$search_blog.'%')
+
                    ->orderBy('blog_id','desc')
                    ->get();
+        $search_get_result=view('pages.search_blog')->with('search_result',$search_result);
 
-        echo '<pre>';
-        print_r($search_result);
-        exit();
+        return view('master')->with('main_content',$search_get_result);
+
+//        echo '<pre>';
+//        print_r($search_result);
+//        exit();
 
 
     }

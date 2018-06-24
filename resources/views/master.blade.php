@@ -66,7 +66,7 @@
 
                 {!! Form::open(['url'=>'/search-blog','method'=>'post']) !!}
 
-               // @csrf
+                @csrf
 
                 <input type="text" name="search"  class="form-control" placeholder="Search Blog">
 
