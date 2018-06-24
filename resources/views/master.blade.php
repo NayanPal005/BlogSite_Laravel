@@ -62,6 +62,18 @@
         <div id="site_title">
             <h1><a href="http://www.templatemo.com" target="_parent"><strong>Nayan's Blog</strong><span>First project in Laravel</span></a></h1>
         </div>
+        <div>
+
+                {!! Form::open(['url'=>'/search-blog','method'=>'post']) !!}
+
+               // @csrf
+
+                <input type="text" name="search"  class="form-control" placeholder="Search Blog">
+
+            <button type="submit" class="btn btn-default">Search</button>
+            {!! Form::close() !!}
+
+        </div>
 
     </div>
 </div>

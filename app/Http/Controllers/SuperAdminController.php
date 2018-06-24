@@ -161,6 +161,7 @@ class SuperAdminController extends Controller
         $data['blog_image'] = $request->blog_image;
 
         if ($_FILES['blog_image']['name']=='' || $_FILES['blog_image']['size']==0){
+            //jodi file e image na thake i mean image update na kori onno filed update tahole old_image tai theke jabe
 
             $data['blog_image']=$request->blogOld_image;
 
@@ -169,7 +170,8 @@ class SuperAdminController extends Controller
                 ->update($data);
 
 
-            unlink($request->blogOld_image);
+           // unlink($request->blogOld_image);
+            //jehutu image update na kore onno filed update kortesi so image unlink kora jabe na
 
             return redirect('manage-blog')->with('status', 'Blog Updated Successfully!');
             // $this->products_model->edited_products_model($details);

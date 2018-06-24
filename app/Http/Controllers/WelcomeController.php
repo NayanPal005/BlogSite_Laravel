@@ -91,6 +91,22 @@ class WelcomeController extends Controller
         return view('master')->with('main_content',$blog_details);
 
     }
+    public function search_blog(Request $request){
+       // echo "This is Search";
+
+        $search_blog=$request->search;
+        $search_result=DB::table('tbl_blog')
+                   ->where('publication_status',1)
+                    ->where('blog_title','like','%'.$search_blog.'%')
+                   ->orderBy('blog_id','desc')
+                   ->get();
+
+        echo '<pre>';
+        print_r($search_result);
+        exit();
+
+
+    }
 
 
     public function portfolio(){

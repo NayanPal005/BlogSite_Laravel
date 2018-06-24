@@ -43,6 +43,7 @@ Route::post('/update-blog','SuperAdminController@update_blog');
 
 Route::get('/blog-details/{id}','WelcomeController@blog_details');
 Route::get('/latest-blog','WelcomeController@latest_blog');
+Route::post('/search-blog','WelcomeController@search_blog');
 
 
 
