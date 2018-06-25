@@ -40,6 +40,7 @@ Route::get('/publish-blog/{id}','SuperAdminController@publish_blog');
 Route::get('/harddelete-blog/{id}','SuperAdminController@harddelete_blog');
 Route::get('/edit-blog/{id}','SuperAdminController@edit_blog');
 Route::post('/update-blog','SuperAdminController@update_blog');
+Route::get('/categorywise_blog/{id}','WelcomeController@categorywise_blog');
 
 Route::get('/blog-details/{id}','WelcomeController@blog_details');
 Route::get('/latest-blog','WelcomeController@latest_blog');

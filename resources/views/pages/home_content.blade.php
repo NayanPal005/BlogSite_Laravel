@@ -59,11 +59,8 @@
                 ?>
 
                 <ul class="templatemo_list">
-                    <li><a href=""><?php echo  $all_published_category->category_name ?></a></li>
-                    {{--<li><a href="index.html">Duis sed justo</a></li>--}}
-                    {{--<li><a href="index.html">Mauris vulputate</a></li>--}}
-                    {{--<li><a href="index.html">Nam auctor</a></li>--}}
-                    {{--<li><a href="index.html">Aliquam quam</a></li>--}}
+                    <li><a href="{{\Illuminate\Support\Facades\URL::to('/categorywise_blog/'.$all_published_category->category_id)}}"><?php echo  $all_published_category->category_name ?></a></li>
+
                 </ul>
                 <?php endforeach; ?>
 

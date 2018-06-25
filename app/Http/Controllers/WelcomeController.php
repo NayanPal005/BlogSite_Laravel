@@ -91,6 +91,31 @@ class WelcomeController extends Controller
         return view('master')->with('main_content',$blog_details);
 
     }
+
+    public function categorywise_blog($category_id){
+
+        echo "This Category id is:".$category_id;
+
+
+        $categorywise_blog= DB::table('tbl_category')
+//
+//         //$categorywise_blog= DB::table('tbl_blog')
+//
+                ->join('tbl_blog','tbl_category.category_id','=','tbl_blog.category_id')
+//
+//                //->join('tbl_category','tbl_blog.category_id','=','tbl_category.category_id')
+               //  ->where('tbl_blog.category_id','>',$category_id) eta dile ei sign(>) ti category_id joto tar ek ghor samner category_id er blog dekhabe :)
+
+                 ->where('tbl_blog.category_id',$category_id)
+//
+                 ->select('tbl_category.*','tbl_blog.*')
+                 ->get();
+
+     echo '<pre>';
+      print_r($categorywise_blog);
+     exit();
+
+    }
     public function search_blog(Request $request){
        // echo "This is Search";
 

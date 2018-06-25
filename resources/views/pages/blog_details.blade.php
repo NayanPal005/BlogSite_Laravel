@@ -33,16 +33,28 @@
                             <p> <?php echo $blog_infoupdate->blog_long_description; ?></p>
 
                         </div>
+
+
                     </div>
+
+
                 </div>
+
 
                         <div id="templatemo_sidebar">
 
+                            <form action="" method="post">
+                                Subject: <input type="text" name="subject"><br/>
+                                Comment: <textarea name="body"></textarea><br/>
+                                <input type="submit" value="Send">
+                            </form>
 
 
                         </div>
 
-                        <div class="cleaner"></div>
+                        <div class="cleaner">
+
+                        </div>
 
 
         </div>
@@ -50,6 +62,7 @@
         </div>
 
         <div id="templatemo_main_bottom"></div>
+
 
 
     </div>
