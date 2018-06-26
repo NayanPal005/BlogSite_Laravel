@@ -22,13 +22,15 @@ Route::get('/', function () {
 Route::get('/','WelcomeController@index'); //home page of this project
 
 Route::get('/portfolio','WelcomeController@portfolio'); //portfolio page of this project
-Route::get('/services','WelcomeController@services'); //Service page of this project
+Route::get('/registration','WelcomeController@registration'); //Service page of this project
 Route::get('/contact','WelcomeController@contact'); //Contact page of this project
 /*================Admin Routes==============================*/
 Route::get('/admin-login','AdminController@admin_login');
 Route::get('/admin-logout','SuperAdminController@admin_logout');
 Route::get('/admin-dashboard','SuperAdminController@index');
 Route::post('/admin-login-check','AdminController@admin_login_check');
+
+\Illuminate\Support\Facades\Auth::routes();
 
 /*  admin panel routes start  */
 Route::get('/add-blog','AdminController@add_blog');
@@ -41,6 +43,7 @@ Route::get('/harddelete-blog/{id}','SuperAdminController@harddelete_blog');
 Route::get('/edit-blog/{id}','SuperAdminController@edit_blog');
 Route::post('/update-blog','SuperAdminController@update_blog');
 Route::get('/categorywise_blog/{id}','WelcomeController@categorywise_blog');
+Route::post('/registration-user','WelcomeController@registration_user');
 
 Route::get('/blog-details/{id}','WelcomeController@blog_details');
 Route::get('/latest-blog','WelcomeController@latest_blog');

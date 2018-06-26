@@ -40,11 +40,19 @@
 
             <ul>
                 <li><a href="{{URL::to('/')}}" class="current">Home</a></li>
-
                 <li><a href="{{\Illuminate\Support\Facades\URL::to('/portfolio')}}">Portfolio</a></li>
-                <li><a href="{{\Illuminate\Support\Facades\URL::to('/services')}}">Services</a></li>
                 <li><a href="{{\Illuminate\Support\Facades\URL::to('/contact')}}">Contact Us</a></li>
+
+
+                @if(\Illuminate\Support\Facades\Auth::guest())
+
+                <li><a href="{{\Illuminate\Support\Facades\URL::to('/registration')}}">Registration</a></li>
                 <li><a href="{{\Illuminate\Support\Facades\URL::to('/admin-login')}}">Admin Login</a></li>
+
+                    @else
+                    <li><a href="{{\Illuminate\Support\Facades\URL::to('/admin-logout')}}">Admin Logout</a></li>
+                    @endif
+
             </ul>
 
         </div> <!-- end of templatemo_menu -->

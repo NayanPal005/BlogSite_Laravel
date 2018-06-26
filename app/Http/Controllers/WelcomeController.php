@@ -140,6 +140,17 @@ class WelcomeController extends Controller
 
 
     }
+    public function registration_user(Request $request){
+
+        $data=array();
+        $data['name']=$request->name;
+        $data['email']=$request->email;
+        $data['password']=$request->password;
+        $data['mobile_number']=$request->mobile_number;
+        DB::table('users')->insert($data);
+
+
+}
 
 
     public function portfolio(){
@@ -148,10 +159,10 @@ class WelcomeController extends Controller
         return view('master')->with('main_content',$portfolio);
 
     }
-    public function services(){
-        $services=view('pages.services');
+    public function registration(){
+        $registration=view('pages.registration');
 
-        return view('master')->with('main_content',$services);
+        return view('master')->with('main_content',$registration);
 
     }
     public function contact(){

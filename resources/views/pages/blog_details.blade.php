@@ -45,7 +45,7 @@
 
                             <form action="" method="post">
                                 Subject: <input type="text" name="subject"><br/>
-                                Comment: <textarea name="body"></textarea><br/>
+                                Comment: <textarea name="body" placeholder="Your Comment Here"></textarea><br/>
                                 <input type="submit" value="Send">
                             </form>
 

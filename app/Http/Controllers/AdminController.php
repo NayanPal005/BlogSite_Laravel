@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 use Carbon\Carbon;
@@ -19,13 +20,15 @@ class AdminController extends Controller
     public function __construct()
     {
 
+      //  $this->authChecking();
+
     }
 
     public function index()
 
     {
 
-      // return view('admin_dashboard');
+      //return view('admin_dashboard');
     }
 
 
@@ -33,24 +36,31 @@ class AdminController extends Controller
 
     public function admin_login(){
 
-         $this->authChecking();
-
+       //  $this->authChecking();
 
 
       return  view('admin.login');
 
     }
-    public function authChecking(){
+    /*
+   public function authChecking(){
 
-        $admin_id=Session::get('admin_id');
 
-        if ($admin_id!=NULL){
 
-            return redirect('admin-dashboard');
-        }
+    $admin_id=Session::get('admin_id');
+
+
+      if ($admin_id!=NULL){
+
+          return Redirect::to('admin-dashboard');
+     }
+     else{
+        return  Redirect::to('admin-login');
+     }
 
 
     }
+    */
 
 
     public  function admin_login_check(Request $request){
@@ -80,11 +90,9 @@ class AdminController extends Controller
 
            // echo $admin_id;
 
-           return view('admin_dashboard');
+        // $this->authChecking();
 
-
-
-
+          return \redirect('admin-dashboard');
         }
         else{
          // Session::put('exeption','Your User ID or password Invalid');

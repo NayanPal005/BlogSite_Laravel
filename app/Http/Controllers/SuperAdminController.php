@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use PHPUnit\Framework\Constraint\IsFalse;
 
-Session::start();//ei ta dite hoi logout er por jate bach dile dashboard e na duke
+//ei ta dite hoi logout er por jate back dile dashboard e na duke
 
 class SuperAdminController extends Controller
 {
@@ -25,10 +26,11 @@ class SuperAdminController extends Controller
     public function index()
     {
 
-        return $this->authChecking();
+        $this->authChecking();
 
 
-        // return view('admin_dashboard');
+         return view('admin_dashboard');
+
     }
 
     public function authChecking()
@@ -38,13 +40,9 @@ class SuperAdminController extends Controller
 
         if ($admin_id == NULL) {
 
-            return view('admin.login');
+            return Redirect::to('admin-login')->send();
 
             //  return redirect('admin-login');
-        } else if ($admin_id != NULL) {
-            return redirect('admin-dashboard');
-        } else {
-            return view('admin_dashboard');
         }
 
     }
